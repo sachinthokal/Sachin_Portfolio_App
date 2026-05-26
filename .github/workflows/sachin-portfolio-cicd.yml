@@ -7,7 +7,7 @@ on:
   workflow_dispatch: 
 
 permissions:
-  contents: write
+  contents: read
   pages: write
   id-token: write
 
@@ -91,26 +91,27 @@ jobs:
           echo "Build integrity check successful."
 
   # ---------------------------------------------------------
-  # STAGE 4: Deploy (Pushing Compiled Static Files to main branch)
+  # STAGE 4: Deploy (Official GitHub Pages Direct Deployment)
   # ---------------------------------------------------------
   deploy:
     name: DEPLOY
     needs: test 
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
-
       - name: Download Compiled Artifacts
         uses: actions/download-artifact@v4 
         with:
           name: portfolio-build
           path: build/
 
-      - name: Deploy to Main Branch
-        uses: JamesIves/github-pages-deploy-action@v4
+      - name: Upload Pages Artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          folder: build
-          branch: main # Changed from gh-pages to main branch
-          git-config-name: github-actions[bot]
-          git-config-email: 41898282+github-actions[bot]@users.noreply.github.com
+          path: build/ # Uploads build directory contents directly to Pages infrastructure
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
