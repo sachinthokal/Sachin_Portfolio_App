@@ -1,0 +1,108 @@
+{
+  "profile": {
+    "title": "Sachin Thokal | Portfolio",
+    "username": "Sachin Thokal",
+    "fullname": "Sachin Sudhakar Thokal",
+    "designation": "DevOps Production Support Engineer",
+    "company": "Tech Mahindra Ltd",
+    "tagline": "A passionate DevOps Engineer focused on automation and continuous integration",
+    "location": "Pune, Maharashtra",
+    "about": "Experienced Devops Production Engineer with 5+ years of expertise in infrastructure automation, kubernetes orchestration, and multitasking support systems. Passionate about optimizing workflows and driving team productivity. I’m passionate about bridging the gap between development and operations, ensuring faster and more reliable software delivery. I thrive in challenging environments where innovation, collaboration, and problem-solving are key to success.",
+    "profile_image": "profile_image.webp",
+    "banner_image": "welcome-banner.webp",
+    "resume": "Sachin_Thokal_8804171399.pdf"
+  },
+  "education": [
+    {
+      "degree": "Bachelor of Computer Science",
+      "year": "2017 - 2020",
+      "percentage": "70.25 % ( FIRST CLASS WITH DISTINCTION )",
+      "college": "New Art's Commers And Science College Ahilyanagar",
+      "location": "Ahilyanagar, Maharashtra - 414005"
+    },
+    {
+      "degree": "HSC",
+      "year": "2016 - 2017",
+      "percentage": "60.00 % ( FIRST CLASS WITH DISTINCTION )",
+      "college": "New English School & Junior College Supa Ahilyanagar",
+      "location": "Supa, Ahilyanagar - 414301"
+    },
+    {
+      "degree": "SSC",
+      "year": "2014 - 2015",
+      "percentage": "78.20 % ( FIRST CLASS WITH DISTINCTION )",
+      "college": "Kamargaon New English School Kamargaon Ahilyanagar",
+      "location": "Kamargaon, Ahilyanagar - 414005"
+    }
+  ],
+  "skills": [
+    { "name": "Linux", "percentage": "90" },
+    { "name": "Git, GitHub", "percentage": "90" },
+
+    { "name": "Docker", "percentage": "90" },
+    { "name": "GitHub Actions, CI/CD Pipeline", "percentage": "90" },
+
+    { "name": "Kubernetes", "percentage": "95" },
+    { "name": "Collaboration and Communication Skills", "percentage": "90" },
+    
+
+    { "name": "Terraform", "percentage": "80" },
+    { "name": "Incident Management and Troubleshooting", "percentage": "90" },
+    
+    { "name": "Ansible", "percentage": "80" },
+    { "name": "Prometheus, Grafana, OpenSearch, ELK Stack, Splunk", "percentage": "90" },
+
+    { "name": "Azure DevOps", "percentage": "90" },
+    { "name": "AWS", "percentage": "75" }
+    
+  ],
+  "experience": [
+    {
+      "title": "DevOps Production Support Engineer",
+      "company": "Tech Mahindra Ltd",
+      "period": "March 2021 - Present",
+      "description": "I am a member of DevOps Production Support team. Responsible for daily maintenance/Deployment of the application servers including nightly/weekly bounce, Monitoring and configuration management."
+    }
+  ],
+  "certifications": [
+    {
+      "short_name": "Microsoft Azure Administrator : AZ-104",
+      "full_name": "Microsoft",
+      "icon": "https://img.icons8.com/fluency/48/azure-1.png"
+    },
+    {
+      "short_name": "Cloud Certification L1/L2",
+      "full_name": "Tech Mahindra",
+      "icon": "https://img.icons8.com/fluency/48/cloud.png"
+    },
+    {
+      "short_name": "AI White/Blue Belt L1/L2",
+      "full_name": "Tech Mahindra",
+      "icon": "https://img.icons8.com/color/48/bard--v2.png"
+    },
+    {
+      "short_name": "DevOps Certification L1/L2",
+      "full_name": "Tech Mahindra",
+      "icon": "https://img.icons8.com/nolan/64/skyatlas.png"
+    },
+    {
+      "short_name": "DevOps Engineer Associate",
+      "full_name": "TrainWithShubham",
+      "icon": "https://storage.googleapis.com/credentials-uploads-prod/badges/9d45abe2-3c1c-4c10-b529-64f83db2b129/ea068dc3c330c20b.png"
+    }
+  ],
+  "achievements": [
+    { "image": "P1.webp" },
+    { "image": "P2.webp" },
+    { "image": "P3.webp" },
+    { "image": "P4.webp" }
+  ],
+  "contact": {
+    "phone": "+91 8804171399",
+    "email": "sachinthokal1799@gmail.com",
+    "github": "https://github.com/sachinthokal"
+  },
+  "footer": {
+    "copyright": "Code. Deploy. Automate. Repeat"
+  }
+}

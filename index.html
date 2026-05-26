@@ -1,0 +1,476 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RK5C9YTBX4"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-RK5C9YTBX4');
+    </script>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description"
+        content="Professional Portfolio of {{ data.profile.fullname }} - {{ data.profile.tagline }}">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <title>{{ data.profile.title }}</title>
+
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/apple-touch-icon.png">
+    <link rel="manifest" href="assets/images/favicon/site.webmanifest">
+    <link rel="shortcut icon" href="assets/images/favicon/favicon.ico">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com/css?family=Poppins:300,400,600,700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #02071a;
+            --accent: #0084cc;
+            --text-main: #2d3436;
+            --text-muted: #555555;
+            /* Fixed for Contrast */
+            --bg-light: #f4f7f6;
+            --white: #ffffff;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .navbar-default {
+            background: rgba(255, 255, 255, 0.95);
+            border: none;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 10px 0;
+            backdrop-filter: blur(10px);
+            transition: 0.4s;
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 22px;
+            color: var(--primary) !important;
+            letter-spacing: 1px;
+        }
+
+        .nav li a {
+            text-transform: uppercase;
+            font-weight: 600;
+            color: var(--text-main) !important;
+            transition: 0.3s;
+        }
+
+        .nav li a:hover,
+        .nav li.active a {
+            color: var(--accent) !important;
+        }
+
+        .welcome-hero {
+            background: linear-gradient(rgba(2, 7, 26, 0.88), rgba(2, 7, 26, 0.88)),
+            url('assets/images/about/{{ data.profile.banner_image }}');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            text-transform: uppercase;
+        }
+
+        .header-text h1 {
+            font-size: 55px;
+            font-weight: 700;
+            letter-spacing: 4px;
+            margin-bottom: 10px;
+        }
+
+        /* Changed h2 to h1 for SEO/A11y */
+        .header-text p {
+            font-size: 20px;
+            margin: 20px 0 40px;
+            opacity: 0.9;
+            letter-spacing: 2px;
+        }
+
+        .header-text a {
+            display: inline-block;
+            padding: 15px 40px;
+            background: var(--accent);
+            color: #02071a;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: 0.5s;
+            box-shadow: 0 4px 15px rgba(0, 168, 255, 0.3);
+        }
+
+        .header-text a:hover {
+            background: var(--white);
+            color: var(--primary);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(255, 255, 255, 0.2);
+        }
+
+        section {
+            padding: 100px 0;
+        }
+
+        .section-heading h2 {
+            font-size: 32px;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 60px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-heading h2:after {
+            content: "";
+            position: absolute;
+            bottom: -12px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+
+        .barWrapper {
+            margin-bottom: 30px;
+        }
+
+        .skill-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .progressText {
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .percentText {
+            font-weight: 700;
+            font-size: 14px;
+            color: var(--primary);
+        }
+
+        .progress {
+            height: 10px;
+            background: #e9ecef;
+            border-radius: 10px;
+            box-shadow: none;
+            overflow: visible;
+        }
+
+        .progress-bar {
+            background: linear-gradient(90deg, #00d2ff 0%, #3a7bd5 100%);
+            border-radius: 10px;
+            height: 100%;
+            transition: 2s cubic-bezier(0.17, 0.67, 0.83, 0.67);
+        }
+
+        .achievement-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            transition: 0.5s;
+        }
+
+        .achievement-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            object-position: center;
+            transition: 0.5s;
+        }
+
+        .achievement-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .achievement-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .card-box {
+            padding: 40px;
+            background: var(--white);
+            border-radius: 12px;
+            border-left: 6px solid var(--primary);
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: 0.4s;
+        }
+
+        .card-box:hover {
+            transform: scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-date {
+            color: var(--accent);
+            font-weight: 700;
+            font-size: 16px;
+        }
+
+        .cert-card {
+            text-align: center;
+            padding: 30px;
+            background: var(--white);
+            border-radius: 15px;
+            margin-bottom: 25px;
+            transition: 0.4s;
+            border: 1px solid transparent;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
+        }
+
+        .cert-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-10px);
+        }
+
+        footer {
+            background: #01040f;
+            color: #8492a6;
+            padding: 40px 0;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body data-spy="scroll" data-target=".navbar" data-offset="70">
+
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar"
+                    aria-label="Toggle Navigation">
+                    <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">SACHIN THOKAL</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#achievements">Achievements</a></li>
+                    <li><a href="#profiles">Certificates</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main id="main-content">
+
+        <section id="welcome-hero" class="welcome-hero">
+            <div class="container text-center">
+                <div class="header-text" data-aos="zoom-in" data-aos-duration="1500">
+                    <h1>{{ data.profile.fullname }}</h1>
+                    <p>{{ data.profile.tagline }}</p>
+                    <a href="assets/download/{{ data.profile.resume }}" download aria-label="Download Sachin's Resume">
+                        <i class="fa fa-download" aria-hidden="true"></i> DOWNLOAD RESUME
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="about">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6" data-aos="fade-right">
+                        <div class="section-heading">
+                            <h2>Professional Bio</h2>
+                        </div>
+                        <p style="font-size: 17px; color: var(--text-muted);">{{ data.profile.about }}</p>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-6"><strong>Current Role:</strong>
+                                <p>{{ data.profile.designation }}</p>
+                            </div>
+                            <div class="col-sm-6"><strong>Company:</strong>
+                                <p>{{ data.profile.company }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-5 col-md-offset-1" data-aos="fade-left">
+                        <img src="assets/images/about/{{ data.profile.profile_image }}" class="img-responsive"
+                            width="500" height="500"
+                            style="border-radius: 80px 20px 80px 20px; border: 6px solid #ffffff; box-shadow: 0 15px 30px rgba(0,0,0,0.12); transition: 0.4s;"
+                            onmouseover="this.style.borderRadius='20px 80px 20px 80px'"
+                            onmouseout="this.style.borderRadius='80px 20px 80px 20px'"
+                            alt="Sachin Thokal Professional Photo" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" style="background:var(--bg-light)">
+            <div class="container">
+                <div class="section-heading" data-aos="fade-up">
+                    <h2>Technical Expertise</h2>
+                </div>
+                <div class="row">
+                    {% for skill in data.skills %}
+                    <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+                        <div class="barWrapper">
+                            <div class="skill-info">
+                                <span class="progressText">{{ skill.name }}</span>
+                                <span class="percentText">{{ skill.percentage }}%</span>
+                            </div>
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" style="width:{{ skill.percentage }}%"
+                                    aria-valuenow="{{ skill.percentage }}" aria-valuemin="0" aria-valuemax="100"
+                                    aria-label="{{ skill.name }} Proficiency">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+
+        <section id="experience">
+            <div class="container">
+                <div class="section-heading" data-aos="fade-up">
+                    <h2>Work History</h2>
+                </div>
+                {% for exp in data.experience %}
+                <div class="card-box" data-aos="fade-up">
+                    <div class="row">
+                        <div class="col-md-2">
+                            <div class="card-date">{{ exp.period }}</div>
+                        </div>
+                        <div class="col-md-10">
+                            <h3 style="font-weight:700; color: var(--primary); font-size: 18px; margin-top: 0;">{{
+                                exp.title }}</h3>
+                            <p style="color: var(--accent); font-weight: 600;">{{ exp.company }}</p>
+                            <p>{{ exp.description }}</p>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+
+        <section id="achievements" style="background: var(--white);">
+            <div class="container">
+                <div class="section-heading" data-aos="fade-up">
+                    <h2>Key Achievements</h2>
+                </div>
+                <div class="row">
+                    {% for ach in data.achievements %}
+                    <div class="col-md-4 col-sm-6" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="achievement-item">
+                            <img src="assets/images/portfolio/{{ ach.image }}" class="img-responsive" loading="lazy"
+                                alt="Achievement Screenshot" width="400" height="250">
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+
+        <section id="profiles" style="background:var(--bg-light)">
+            <div class="container">
+                <div class="section-heading" data-aos="fade-up">
+                    <h2>Certifications</h2>
+                </div>
+                <div class="row">
+                    {% for cert in data.certifications %}
+                    <div class="col-sm-3" data-aos="flip-left" data-aos-delay="200">
+                        <div class="cert-card">
+                            <img src="{{ cert.icon }}" width="60" height="60" alt="{{ cert.short_name }} logo">
+                            <h3 style="font-weight:700; font-size: 16px;">{{ cert.short_name }}</h3>
+                            <p style="color: var(--text-muted); font-size: 12px;">{{ cert.full_name }}</p>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" style="background: var(--primary); padding: 100px 0;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6" data-aos="fade-right">
+                        <div class="section-heading">
+                            <h2 style="color: white;">Get In Touch</h2>
+                        </div>
+                        <div class="contact-info" style="color: #bdc3c7; font-size: 16px;">
+                            <p><i class="fa fa-phone" aria-hidden="true"></i> {{ data.contact.phone }}</p>
+                            <p><i class="fa fa-envelope" aria-hidden="true"></i> {{ data.contact.email }}</p>
+                            <p><i class="fa fa-map-marker" aria-hidden="true"></i> {{ data.profile.location }}</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6" data-aos="fade-left">
+                        <div
+                            style="background: rgba(255,255,255,0.05); padding: 40px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.1); text-align: center;">
+                            <h3 style="color: white; margin-bottom:30px; font-weight: 600; font-size: 20px;">Wanna
+                                collaborate on a project?</h3>
+                            <button class="btn btn-block"
+                                style="background: #25d366; color: white; font-weight: 700; padding: 15px; border-radius: 50px; letter-spacing: 1px; border: none; transition: 0.3s; box-shadow: 0 10px 20px rgba(37, 211, 102, 0.2);"
+                                onmouseover="this.style.opacity='0.9'; this.style.transform='scale(1.02)';"
+                                onmouseout="this.style.opacity='1'; this.style.transform='scale(1)';"
+                                onclick="const phone = '{{ data.contact.phone }}'.replace(/\D/g, ''); window.open('https://wa.me/' + phone + '?text=Hi Sachin, I saw your portfolio and would like to discuss a project!', '_blank')">
+                                <i class="fa fa-whatsapp" style="margin-right: 8px; font-size: 18px;"
+                                    aria-hidden="true"></i> CHAT ON WHATSAPP
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="text-center" style="padding: 40px 0; border-top: 1px solid rgba(255,255,255,0.05);">
+        <p style="color: rgba(255,255,255,0.6); font-size: 14px; letter-spacing: 1px; margin: 0;">
+            {{ data.footer.copyright }} |
+            <i class="fa fa-copyright" aria-hidden="true"></i> <span
+                style="color: white; border-bottom: 1px solid var(--accent);">Sachin Thokal</span>
+            <i class="fa fa-heart" aria-hidden="true" style="color: #ff0000; font-size: 14px; margin: 0 4px;"></i>
+        </p>
+    </footer>
+
+    <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script defer src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+        // Isse ye ensure hoga ki library load hone ke baad hi function chale
+        document.addEventListener('DOMContentLoaded', function () {
+            if (typeof AOS !== 'undefined') {
+                AOS.init({
+                    duration: 1000,
+                    once: true,
+                    offset: 100
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>

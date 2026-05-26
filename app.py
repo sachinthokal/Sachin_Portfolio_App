@@ -1,0 +1,26 @@
+import json
+import os
+from flask import Flask, render_template, send_from_directory
+
+app = Flask(__name__, 
+            static_folder='assets', 
+            static_url_path='/assets',
+            template_folder='')
+
+@app.route('/')
+def index():
+    # डेटा वाचून HTML ला पाठवण्यासाठी (Server-side rendering साठी)
+    try:
+        with open('data.json', 'r', encoding='utf-8') as f:
+            info = json.load(f)
+    except FileNotFoundError:
+        info = {}
+    return render_template('index.html', data=info)
+
+# हा नवीन रूट ॲड करा जो ब्राउझरला data.json फाईल देईल
+@app.route('/data.json')
+def serve_json():
+    return send_from_directory(os.getcwd(), 'data.json')
+
+if __name__ == '__main__':
+    app.run(debug=True)
